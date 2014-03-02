@@ -2,7 +2,7 @@
 
 class System {
 
-	static function isPost() {
+	public static function isPost() {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return true;
 		} else {
@@ -10,7 +10,7 @@ class System {
 		}
 	}
 
-	static function isGet() {
+	public static function isGet() {
 		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			return true;
 		} else {
@@ -18,17 +18,17 @@ class System {
 		}
 	}
 
-	static function redirect($url) {
+	public static function redirect($url) {
 		header( 'Location: '.$url ) ;
 	}
 
 
-	static function cleanseString($string) {
+	public static function cleanseString($string) {
 		$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
    		return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	}
 
-	static function paginate($data,$page=1,$per_page=5) {
+	public static function paginate($data,$page=1,$per_page=5) {
 		  $min = (($page*$per_page)-$per_page)+1;
 		  $max = $page*$per_page;
 		  $count = 1;
@@ -46,7 +46,6 @@ class System {
 		    'page'=>$page
 		  );
 	}
-
 
 }
 
